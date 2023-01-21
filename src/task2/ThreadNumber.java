@@ -6,6 +6,6 @@ public class ThreadNumber extends Thread{
 
     @Override
     public void run() {
-
+        System.out.println("result = " + Main.result);
     }
 }

@@ -9,12 +9,10 @@ public class Main {
 
     public static int n = 31;
     public static String correct = "";
-
+    public  static ArrayList<String> result = new ArrayList<>();
     public static void main(String[] args) throws InterruptedException {
 
         Number number = new Number();
-
-        ArrayList<String> result = new ArrayList<>();
 
         for (int i = 1; i < n; i++) {
             number.setNumber(i);
@@ -25,14 +23,11 @@ public class Main {
             TimeUnit.MILLISECONDS.sleep(10);
             new ThreadFizzBuzz(number.getNumber()).start();
             TimeUnit.MILLISECONDS.sleep(10);
-//            new ThreadNumber().start();
+
 
             result.add(correct);
         }
-        System.out.println("result = " + result);
-
-
-
+        new ThreadNumber().start();
 
     }
 
