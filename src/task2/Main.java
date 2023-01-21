@@ -1,8 +1,38 @@
 package task2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static int n = 31;
+    public static String correct = "";
+
+    public static void main(String[] args) throws InterruptedException {
+
+        Number number = new Number();
+
+        ArrayList<String> result = new ArrayList<>();
+
+        for (int i = 1; i < n; i++) {
+            number.setNumber(i);
+            correct = Integer.toString(number.getNumber());
+            new ThreadBuzz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+            new ThreadFizz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+            new ThreadFizzBuzz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+//            new ThreadNumber().start();
+
+            result.add(correct);
+        }
+        System.out.println("result = " + result);
+
+
+
 
     }
 
@@ -29,4 +59,26 @@ public class Main {
 і якщо так - додати в чергу на виведення для потоку D рядок fizzbuzz.
 
 Потік D викликає метод number(), щоб вивести наступне число з черги, якщо є таке число для виведення.
+ */
+
+/*
+   Number number = new Number();
+
+        ArrayList<String> result = new ArrayList<>();
+
+        for (int i = 1; i < n; i++) {
+            number.setNumber(i);
+            correct = Integer.toString(number.getNumber());
+            new ThreadBuzz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+            new ThreadFizz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+            new ThreadFizzBuzz(number.getNumber()).start();
+            TimeUnit.MILLISECONDS.sleep(10);
+//            new ThreadNumber().start();
+
+            result.add(correct);
+        }
+
+        System.out.println("result = " + result);
  */
